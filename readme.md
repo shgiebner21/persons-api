@@ -4,7 +4,7 @@
 
 ```
 $ git clone <some github url>
-$ cd persons-ape
+$ cd persons-api
 $ npm install
 $ node app.js
 ```
