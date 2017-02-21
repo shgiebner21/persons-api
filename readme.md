@@ -3,10 +3,11 @@
 ## Getting started
 
 ```
+$ mkdir persons-api
 $ git clone <some github url>
 $ cd persons-api
 $ npm install
-$ node app.js
+$ node start
 ```
 
 ### Endpoints
