@@ -39,7 +39,7 @@ cellPhone: "843-622-1234"
 ```
 
 
-## Adding or updating a person to the database
+## Adding a person to the database
 
 ### Endpoints
 - N/A
@@ -70,6 +70,40 @@ cellPhone: "843-622-1234"
   "rev": "1-63e267d2c303300ac6227ee50b33de8a"
 }
 ```
+
+## Updating a person to the database
+
+### Endpoints
+- N/A
+
+#### parameters
+- Include the object to be added or updated.
+
+```
+{
+  "_id": "person_michael_giebner_mikegiebner@aol.com",
+  "_rev": "3-81c621337f063ac6972759b6cd7f219d",
+  "type": "person",
+  "firstName": "Michael",
+  "lastName": "Giebner",
+  "email": "mikegiebner@gmail.com",
+  "cellPhone": "803-622-5555"
+}
+```
+
+### Example put:
+- In Postman, Select Put and data-type JSON.
+
+### Example response:
+
+```
+{
+  "ok": true,
+  "id": "person_michael_giebner_mikegiebner@aol.com",
+  "rev": "4-d7eac88ecb244e56955ccfb07ffae215"
+}
+```
+
 
 
 ## Deleting a person from the database

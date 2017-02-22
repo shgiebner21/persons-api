@@ -18,6 +18,13 @@ function addPerson(doc, callMeMaybe) {
   })
 }
 
+function updatePerson(doc, callMeMaybe) {
+  db.put(doc, function(err, resp) {
+    if (err) return callMeMaybe(err)
+    callMeMaybe(null, resp)
+  })
+}
+
 function deletePerson(id, callMeMaybe) {
   db.get(id, function(err, doc) {
     if (err)  return callMeMaybe(err)
@@ -33,6 +40,7 @@ function deletePerson(id, callMeMaybe) {
 const dal = {
   getPerson: getPerson,
   addPerson: addPerson,
+  updatePerson: updatePerson,
   deletePerson: deletePerson
 }
 module.exports = dal

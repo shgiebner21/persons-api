@@ -23,6 +23,13 @@ app.post('/persons', function(req, resp, next) {
   })
 })
 
+app.put('/persons/:id', function(req, resp, next) {
+  dal.updatePerson(req.body, function(err, person) {
+    if (err) return next(new HTTPError(err.status, err.message, err))
+    resp.send(person)
+  })
+})
+
 app.delete('/persons/:id', function(req, resp, next) {
   dal.deletePerson(req.params.id, function(err, person) {
     if (err) return next(new HTTPError(err.status, err.message, err))
