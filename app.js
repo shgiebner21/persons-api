@@ -9,6 +9,14 @@ const HTTPError = require('node-http-error')
 
 app.use(bodyParser.json())
 
+
+app.get('/persons', function(req, resp, next) {
+  dal.getPersons(function(err, people) {
+    if (err) return next(new HTTPError(err.status, err.message, err))
+    resp.status(201).send(people)
+  })
+})
+
 app.get('/persons/:id', function(req, resp, next) {
   dal.getPerson(req.params.id, function(err, person) {
     if (err) return next(new HTTPError(err.status, err.message, err))
@@ -22,6 +30,7 @@ app.post('/persons', function(req, resp, next) {
     resp.send(person)
   })
 })
+
 
 app.put('/persons/:id', function(req, resp, next) {
   dal.updatePerson(req.body, function(err, person) {

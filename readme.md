@@ -1,14 +1,17 @@
 # Persons API readme
 
-## Getting started
+# Getting started
+
 
 ```
 $ mkdir persons-api
-$ git clone <some github url>
+$ git clone <https://github.com/shgiebner21/persons-api.git>
 $ cd persons-api
 $ npm install
 $ node start
 ```
+
+## Getting a person from the database
 
 ### Endpoints
 
@@ -70,6 +73,10 @@ cellPhone: "843-622-1234"
   "rev": "1-63e267d2c303300ac6227ee50b33de8a"
 }
 ```
+
+### Common errors:
+
+
 
 ## Updating a person to the database
 
