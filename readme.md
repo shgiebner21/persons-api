@@ -45,6 +45,7 @@ cellPhone: "843-622-1234"
 ```
 
 
+
 ### Getting a person from the database
 
 #### Endpoints
