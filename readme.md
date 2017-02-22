@@ -26,7 +26,7 @@ $ node start
 GET /persons
 ```
 
-### Example response:
+#### Example response:
 
 ```
 {
@@ -61,7 +61,7 @@ cellPhone: "843-622-1234"
 GET /persons/person_mary_demos_maryd@gmail.com
 ```
 
-### Example response:
+#### Example response:
 
 ```
 {
@@ -107,7 +107,7 @@ cellPhone: "843-622-1234"
 }
 ```
 
-#### Example put:
+### Example put:
 - In Postman, Select __Post__ and data-type __JSON__.
 
 #### Example response:
@@ -152,7 +152,7 @@ cellPhone: "843-622-1234"
 }
 ```
 
-#### Example put:
+### Example put:
 - In Postman, Select __Put__ and data-type __JSON__.
 
 #### Example response:
@@ -177,7 +177,7 @@ cellPhone: "843-622-1234"
 #### parameters
 - `id`  The primary key of the person to retrieve from the db.
 
-#### Example call:
+### Example call:
 ```
 DELETE /persons/person_mary_demos_maryd@gmail.com  
 ```
