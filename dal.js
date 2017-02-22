@@ -11,20 +11,28 @@ function getPerson(id, callMeMaybe) {
 }
 
 
+function addPerson(doc, callMeMaybe) {
+  db.put(doc, function(err, resp) {
+    if (err) return callMeMaybe(err)
+    callMeMaybe(null, resp)
+  })
+}
 
-
-
-
-
-
-
-
-
-
+function deletePerson(id, callMeMaybe) {
+  db.get(id, function(err, doc) {
+    if (err)  return callMeMaybe(err)
+    db.remove(doc, function(err, resp) {
+      if (err) return callMeMaybe(err)
+      callMeMaybe(null, resp)
+    })
+  })
+}
 
 
 
 const dal = {
-  getPerson: getPerson
+  getPerson: getPerson,
+  addPerson: addPerson,
+  deletePerson: deletePerson
 }
 module.exports = dal
