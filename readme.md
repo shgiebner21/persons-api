@@ -11,7 +11,7 @@ $ npm install
 $ node start
 ```
 
-### Getting a list of persons from the database
+### `Getting a list of persons from the database`
 
 #### Endpoints
 
@@ -46,7 +46,7 @@ cellPhone: "843-622-1234"
 
 
 
-### Getting a person from the database
+### `Getting a person from the database`
 
 #### Endpoints
 
@@ -89,7 +89,7 @@ cellPhone: "843-622-1234"
 ```
 
 
-### Adding a person to the database
+### `Adding a person to the database`
 
 #### Endpoints
 - N/A
@@ -133,7 +133,7 @@ cellPhone: "843-622-1234"
 }
 ```
 
-### Updating a person to the database
+### `Updating a person to the database`
 
 #### Endpoints
 - `/persons/:id`
@@ -170,7 +170,7 @@ cellPhone: "843-622-1234"
 -
 
 
-### Deleting a person from the database
+### `Deleting a person from the database`
 
 #### Endpoints
 - `/persons/:id`
