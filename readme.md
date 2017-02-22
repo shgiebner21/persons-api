@@ -1,6 +1,6 @@
 # Persons API readme
 
-# Getting started
+### Getting started
 
 
 ```
@@ -11,9 +11,43 @@ $ npm install
 $ node start
 ```
 
-## Getting a person from the database
+### Getting a list of persons from the database
 
-### Endpoints
+#### Endpoints
+
+- `/persons`
+
+#### parameters
+- all persons
+
+### Example call:
+
+```
+GET /persons
+```
+
+### Example response:
+
+```
+{
+_id: "person_mary_demos_maryd@gmail.com",
+_rev: "2-06f0851ef1f0979d8cbe915990dc019c",
+type: "person",
+firstName: "Mary",
+lastName: "Demos",
+email: "maryd@gmail.com",
+cellPhone: "843-622-1234"
+}
+.
+.
+{another person object
+}
+```
+
+
+### Getting a person from the database
+
+#### Endpoints
 
 - `/persons/:id`
 
@@ -41,10 +75,22 @@ cellPhone: "843-622-1234"
 }
 ```
 
+#### Common errors:
+- Requesting a person not in the database (404)
+```
+{
+  "name": "not_found",
+  "status": 404,
+  "message": "missing",
+  "reason": "missing",
+  "error": "not_found"
+}
+```
 
-## Adding a person to the database
 
-### Endpoints
+### Adding a person to the database
+
+#### Endpoints
 - N/A
 
 #### parameters
@@ -61,10 +107,10 @@ cellPhone: "843-622-1234"
 }
 ```
 
-### Example put:
-- In Postman, Select Post and data-type JSON.
+#### Example put:
+- In Postman, Select __Post__ and data-type __JSON__.
 
-### Example response:
+#### Example response:
 
 ```
 {
@@ -74,14 +120,22 @@ cellPhone: "843-622-1234"
 }
 ```
 
-### Common errors:
+#### Common errors:
+- Trying to add person already in database
+```
+{
+  "name": "conflict",
+  "status": 409,
+  "message": "Document update conflict.",
+  "reason": "Document update conflict.",
+  "error": "conflict"
+}
+```
 
+### Updating a person to the database
 
-
-## Updating a person to the database
-
-### Endpoints
-- N/A
+#### Endpoints
+- `/persons/:id`
 
 #### parameters
 - Include the object to be added or updated.
@@ -98,10 +152,10 @@ cellPhone: "843-622-1234"
 }
 ```
 
-### Example put:
-- In Postman, Select Put and data-type JSON.
+#### Example put:
+- In Postman, Select __Put__ and data-type __JSON__.
 
-### Example response:
+#### Example response:
 
 ```
 {
@@ -111,28 +165,42 @@ cellPhone: "843-622-1234"
 }
 ```
 
+#### Common errors:
+-
 
 
-## Deleting a person from the database
+### Deleting a person from the database
 
-### Endpoints
+#### Endpoints
 - `/persons/:id`
 
 #### parameters
 - `id`  The primary key of the person to retrieve from the db.
 
-### Example call:
-
+#### Example call:
 ```
-DELETE /persons/person_mary_demos_maryd@gmail.com
+DELETE /persons/person_mary_demos_maryd@gmail.com  
 ```
 
-### Example response:
+
+#### Example response:
 
 ```
 {
   "ok": true,
   "id": "person_steve_martin_FunnyMan@gmail.com",
   "rev": "4-2c17b001f5c16626bc6f5cb1a963db7f"
+}
+```
+
+#### Common errors:
+- Trying to delete an item not in the database:
+```
+{
+  "name": "not_found",
+  "status": 404,
+  "message": "deleted",
+  "reason": "deleted",
+  "error": "not_found"
 }
 ```
