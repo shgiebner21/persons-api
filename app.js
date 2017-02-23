@@ -54,6 +54,7 @@ app.delete('/persons/:id', function(req, resp, next) {
 })
 
 ///////////// Address section /////////////////////////
+
 app.get('/addresses', function(req, resp, next) {
   dal.getAddresses(function(err, addresses) {
     if (err) return next(new HTTPError(err.status, err.message, err))
@@ -68,7 +69,12 @@ app.get('/addresses/:id', function(req, resp, next) {
   })
 })
 
-
+app.post('/addresses', function(req, resp, next) {
+  dal.createAddress(req.body, function(err,address) {
+    if (err) return next(new HTTPError(err.status, err.message, err))
+    resp.status(201).send(address)
+  })
+})
 
 
 ////////////////// Error Handler //////////////////////

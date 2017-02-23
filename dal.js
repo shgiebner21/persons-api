@@ -53,6 +53,7 @@ function deletePerson(id, callMeMaybe) {
 }
 
 ///////////// Address section //////////////////
+
 function getAddresses(callMeMaybe) {
   db.allDocs({include_docs: true,
               start_key: "address_",
@@ -63,13 +64,18 @@ function getAddresses(callMeMaybe) {
 }
 
 function getAddress(id, callMeMaybe) {
-  console.log("inside dal getAddress with id of ", id)
   db.get(id, function(err, resp) {
     if (err) return callMeMaybe(err)
     callMeMaybe(null, resp)
   })
 }
 
+function createAddress(address, callMeMaybe) {
+  db.put(address, function(err, resp) {
+    if (err) return callMeMaybe(err)
+    callMeMaybe(null, resp)
+  })
+}
 
 
 
@@ -93,6 +99,7 @@ const dal = {
   updatePerson: updatePerson,
   deletePerson: deletePerson,
   getAddresses: getAddresses,
-  getAddress: getAddress
+  getAddress: getAddress,
+  createAddress: createAddress
 }
 module.exports = dal

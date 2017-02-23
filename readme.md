@@ -286,3 +286,49 @@ GET /addresses/address_person_dennis_clark_chode@aol.com_1234_kiawah_island
   "error": "not_found"
 }
 ```
+
+### `Adding an address to the database`
+
+#### Endpoints
+- N/A
+
+#### parameters
+- Include the object to be added or updated.
+
+```
+{
+  "_id": "address_person_bruce_wayne_batSignal@gmail.com_120_wayne_manor",
+  "person_id": "person_bruce_wayne_batman@gmail.com",
+  "type": "address",
+  "address_type": "home",
+  "street": "Wayne Manor",
+  "city": "Gotham",
+  "state": "New York",
+  "zip": 55555
+}
+```
+
+### Example put:
+- In Postman, Select __Post__ and data-type __JSON__.
+
+#### Example response:
+
+```
+{
+  "ok": true,
+  "id": "address_person_bruce_wayne_batSignal@gmail.com_120_wayne_manor",
+  "rev": "1-c1dc2346c37b4872986d8e9c29a6b9a5"
+}
+```
+
+#### Common errors:
+- Trying to add person already in database
+```
+{
+  "name": "conflict",
+  "status": 409,
+  "message": "Document update conflict.",
+  "reason": "Document update conflict.",
+  "error": "conflict"
+}
+```
