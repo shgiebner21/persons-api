@@ -332,3 +332,42 @@ GET /addresses/address_person_dennis_clark_chode@aol.com_1234_kiawah_island
   "error": "conflict"
 }
 ```
+
+
+### `Updating an address to the database`
+
+#### Endpoints
+- `/addresses/:id`
+
+#### parameters
+- Include the object to be updated (WITH updates included).
+
+```
+{
+  "_id": "address_person_bruce_wayne_batSignal@gmail.com_1_fairway_lane",
+  "_rev": "2-f0585ef6991679ee0384910b91351ed0",
+  "person_id": "person_bruce_wayne_batman@gmail.com",
+  "type": "address",
+  "address_type": "vacation",
+  "street": "21 Fairway Lane",
+  "city": "Paradise Island",
+  "island": "Grand Bahamas",
+  "postal code": "PAR 21"
+}
+```
+
+### Example put:
+- In Postman, Select __Put__ and data-type __JSON__.
+
+#### Example response:
+
+```
+{
+  "ok": true,
+  "id": "address_person_bruce_wayne_batSignal@gmail.com_1_fairway_lane",
+  "rev": "2-f0585ef6991679ee0384910b91351ed0"
+}
+```
+
+#### Common errors:
+-

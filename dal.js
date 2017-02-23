@@ -77,6 +77,13 @@ function createAddress(address, callMeMaybe) {
   })
 }
 
+function updateAddress(address, callMeMaybe) {
+  db.put(address, function(err, resp) {
+    if (err) return callMeMaybe(err)
+    callMeMaybe(null, resp)
+  })
+}
+
 
 
 /////////////Helper functions //////////////////
@@ -84,6 +91,11 @@ function prepNewPerson(doc) {
   doc._id = "person_" + doc.firstName.toLowerCase() + "_" +  doc.lastName.toLowerCase() + "_" + doc.email.toLowerCase()
   doc.type = "person"
     return doc
+}
+
+function prepNewAddress(address) {
+  doc._id = "address_person_" + doc.firstName.toLowerCase() + "_" + doc.lastName.toLowerCase() + "_" + doc.email.toLowerCase() + "_" + doc.address
+  doc.type = "address"
 }
 
 function checkPersonRequiredValues(doc) {
@@ -100,6 +112,7 @@ const dal = {
   deletePerson: deletePerson,
   getAddresses: getAddresses,
   getAddress: getAddress,
-  createAddress: createAddress
+  createAddress: createAddress,
+  updateAddress: updateAddress
 }
 module.exports = dal
