@@ -63,10 +63,16 @@ app.get('/addresses', function(req, resp, next) {
 })
 
 app.get('/addresses/:id', function(req, resp, next) {
-  dal.getAddress(req.params.id, function(err, address) {
-    if (err) return next(new HTTPError(err.status, err.message, err))
-    resp.status(201).send(address)
-  })
+  if (contains("address", req.params.id)) {
+    dal.getAddress(req.params.id, function(err, address) {
+      if (err) return next(new HTTPError(err.status, err.message, err))
+      resp.status(201).send(address)
+    })
+  } else {
+    return console.log({  "name": "not_found",
+      "status": 404,  "message": "missing",
+      "reason": "missing",  "error": "not_found"})
+    }
 })
 
 app.post('/addresses', function(req, resp, next) {
