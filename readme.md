@@ -205,3 +205,84 @@ DELETE /persons/person_mary_demos_maryd@gmail.com
   "error": "not_found"
 }
 ```
+
+
+### `Getting a list of addresses from the database`
+
+#### Endpoints
+
+- `/addresses`
+
+#### parameters
+- all addresses
+
+### Example call:
+
+```
+GET /addresses
+```
+
+#### Example response:
+
+```
+{
+  "_id": "address_person_dennis_clark_chode@aol.com_1234_kiawah_island",
+  "_rev": "2-8f44821fd18e59226aba9acc60d91d24",
+  "person_id": "person_dennis_clark_chode@aol.com",
+  "type": "address",
+  "address_type": "vacation",
+  "street": "1234 Kiawah Island",
+  "city": "Kiawah",
+  "state": "South Carolina",
+  "zip": 29434
+}
+.
+.
+{another address object
+}
+```
+
+
+### `Getting an address from the database`
+
+#### Endpoints
+
+- `/addresses/:id`
+
+#### parameters
+- `id`  The primary key of the address to retrieve from the db.
+
+
+### Example call:
+
+```
+GET /addresses/address_person_dennis_clark_chode@aol.com_1234_kiawah_island
+```
+
+#### Example response:
+
+```
+{
+  "_id": "address_person_dennis_clark_chode@aol.com_1234_kiawah_island",
+  "_rev": "2-8f44821fd18e59226aba9acc60d91d24",
+  "person_id": "person_dennis_clark_chode@aol.com",
+  "type": "address",
+  "address_type": "vacation",
+  "street": "1234 Kiawah Island",
+  "city": "Kiawah",
+  "state": "South Carolina",
+  "zip": 29434
+}
+```
+
+#### Common errors:
+- Requesting an address not in the database (404)
+```
+{
+  "name": "not_found",
+  "status": 404,
+  "message": "missing",
+  "reason": "missing",
+  "error": "not_found"
+}
+```
