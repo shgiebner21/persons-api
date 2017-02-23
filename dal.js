@@ -70,8 +70,8 @@ function getAddress(id, callMeMaybe) {
   })
 }
 
-function createAddress(address, callMeMaybe) {
-  db.put(address, function(err, resp) {
+function createAddress(doc, callMeMaybe) {
+  db.put(prepNewAddress(doc), function(err, resp) {
     if (err) return callMeMaybe(err)
     callMeMaybe(null, resp)
   })
@@ -103,13 +103,16 @@ function prepNewPerson(doc) {
     return doc
 }
 
-function prepNewAddress(address) {
-  doc._id = "address_person_" + doc.firstName.toLowerCase() + "_" + doc.lastName.toLowerCase() + "_" + doc.email.toLowerCase() + "_" + doc.address
-  doc.type = "address"
-}
-
 function checkPersonRequiredValues(doc) {
   return prop("firstName", doc) && prop("lastName", doc) && prop("email", doc)
+  return doc
+}
+
+
+function prepNewAddress(doc) {
+  console.log("inside prepNewAddress with doc of ", doc)
+  doc._id = "address_" + doc.person_id.toLowerCase() + "_" + doc.street.toLowerCase()
+  doc.type = "address"
   return doc
 }
 
