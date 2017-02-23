@@ -84,6 +84,16 @@ function updateAddress(address, callMeMaybe) {
   })
 }
 
+function deleteAddress(address, callMeMaybe) {
+  db.get(address, function(err, doc) {
+    console.log("inside deleteAddress, sending address to db.remove with ", address)
+    if (err) return callMeMaybe(err)
+    db.remove(doc, function(err, resp) {
+      if (err) return callMeMaybe(err)
+      callMeMaybe(null, resp)
+    })
+  })
+}
 
 
 /////////////Helper functions //////////////////
@@ -113,6 +123,7 @@ const dal = {
   getAddresses: getAddresses,
   getAddress: getAddress,
   createAddress: createAddress,
-  updateAddress: updateAddress
+  updateAddress: updateAddress,
+  deleteAddress: deleteAddress
 }
 module.exports = dal

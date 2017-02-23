@@ -371,3 +371,41 @@ GET /addresses/address_person_dennis_clark_chode@aol.com_1234_kiawah_island
 
 #### Common errors:
 -
+
+
+
+### `Deleting an address from the database`
+
+#### Endpoints
+- `/addresses/:id`
+
+#### parameters
+- `id`  The primary key of the address to retrieve from the db.
+
+### Example call:
+```
+DELETE /addresses/address_person_bruce_wayne_batSignal@gmail.com_1_fairway_lane
+```
+
+
+#### Example response:
+
+```
+{
+  "ok": true,
+  "id": "address_person_bruce_wayne_batSignal@gmail.com_1_fairway_lane",
+  "rev": "3-a9d6a74f2cd73aac393ed0cf1085c866"
+}
+```
+
+#### Common errors:
+- Trying to delete an address not in the database:
+```
+{
+  "name": "not_found",
+  "status": 404,
+  "message": "deleted",
+  "reason": "deleted",
+  "error": "not_found"
+}
+```

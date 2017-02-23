@@ -89,6 +89,13 @@ app.put('/addresses/:id', function(req, resp, next) {
   })
 })
 
+app.delete('/addresses/:id', function(req, resp, next) {
+  dal.deleteAddress(req.params.id, function(err, address) {
+    if (err) return next(new HTTPError(err.status, err.message, err))
+    resp.status(201).send(address)
+  })
+})
+
 
 ////////////////// Error Handler //////////////////////
 app.use(function(err, req, resp, next) {
